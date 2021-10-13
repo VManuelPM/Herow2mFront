@@ -1,0 +1,28 @@
+{
+  "heroes": [
+    {
+      "idHeroe": "1",
+      "heroeName": "Spiderman",
+      "heroeDescription": "Spider",
+      "heroeImage": "https://cdn-icons-png.flaticon.com/512/1674/1674456.png"
+    },
+    {
+      "idHeroe": "2",
+      "heroeName": "Iron Man",
+      "heroeDescription": "Iron",
+      "heroeImage": "https://cdn-icons-png.flaticon.com/512/892/892721.png"
+    },
+    {
+      "idHeroe": "3",
+      "heroeName": "Superman",
+      "heroeDescription": "Super man ",
+      "heroeImage": "https://cdn-icons-png.flaticon.com/512/1674/1674454.png"
+    },
+    {
+      "idHeroe": "4",
+      "heroeName": "Manolito el fuerte",
+      "heroeDescription": "Manolito",
+      "heroeImage": "https://cdn-icons-png.flaticon.com/512/1527/1527649.png"
+    }
+  ]
+}

@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<app-header [sidenav] = "sidenav"></app-header>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav">
+    <button mat-button class="menu-button">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>
+
