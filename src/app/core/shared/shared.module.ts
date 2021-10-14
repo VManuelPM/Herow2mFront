@@ -12,6 +12,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -33,6 +35,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDialogModule
   ],
   declarations: [NotFoundComponent, HeaderComponent, FooterComponent],
   exports: [
@@ -48,6 +51,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatFormFieldModule,
     MatPaginatorModule,
     MatInputModule,
+    MatDialogModule,
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,

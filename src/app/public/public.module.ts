@@ -1,6 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PublicRoutingModule } from './public-routing.module';
 import { SharedModule } from '../core/shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PublicComponent } from './public.component';
 import { HomeComponent } from './home/containers/home.component';
@@ -10,7 +12,7 @@ import { HeroesComponent } from './heroes/container/heroes.component';
 import { HeroesTableComponent } from './heroes/components/heroe-table/heroe-table.component';
 
 @NgModule({
-  imports: [PublicRoutingModule, SharedModule],
+  imports: [CommonModule, PublicRoutingModule, SharedModule, ReactiveFormsModule],
   declarations: [
     PublicComponent,
     HeroesComponent,
@@ -19,7 +21,8 @@ import { HeroesTableComponent } from './heroes/components/heroe-table/heroe-tabl
     HeroeCardComponent,
   ],
   exports: [],
-  providers: [HeroesService]
+  providers: [HeroesService],
+  entryComponents: [HeroeCardComponent]
 })
 export class PublicModule {
   constructor() {}

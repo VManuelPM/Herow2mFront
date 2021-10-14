@@ -1,5 +1,5 @@
 export interface HeroesModel{
-    idHeroe ?: number;
+    id ?: number;
     heroeName: string;
     heroeDescription: string;
     heroeImage: string;

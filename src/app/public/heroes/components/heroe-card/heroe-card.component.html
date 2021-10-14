@@ -1,17 +1,45 @@
-<mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    
-    <mat-card-content>
-      <p>
-       
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+<form [formGroup]="heroeForm" (ngSubmit)="onSubmit()" novalidate>
+  <mat-form-field appearance="fill">
+    <mat-label>Heroe Name</mat-label>
+    <input matInput formControlName="heroeName" name="heroeName" type="text" />
+    <mat-error
+      *ngIf="getControl.heroeName.touched && getControl.heroeName.invalid">
+      <mat-error *ngIf="getControl.heroeName.hasError('minLength')">
+        Please enter a name > 3 length
+      </mat-error>
+      <mat-error *ngIf="getControl.heroeName.hasError('required')">
+        Heroe Name is <strong>required</strong>
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Heroe Description</mat-label>
+    <input matInput formControlName="heroeDescription" />
+    <mat-error
+      *ngIf="getControl.heroeDescription.touched && getControl.heroeDescription.invalid">
+      <mat-error *ngIf="getControl.heroeDescription.hasError('minLength')">
+        Please enter a description > 3 length
+      </mat-error>
+      <mat-error *ngIf="getControl.heroeDescription.hasError('required')">
+        Description is <strong>required</strong>
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Url Heroe Image</mat-label>
+    <input matInput formControlName="heroeImage" type="url" placeholder="https://example.com"/>
+    <mat-error
+      *ngIf="getControl.heroeImage.touched && getControl.heroeImage.invalid">
+      <mat-error *ngIf="getControl.heroeImage.hasError('minLength')">
+        Please enter a image > 1 lenght
+      </mat-error>
+      <mat-error *ngIf="getControl.heroeImage.hasError('required')">
+        Image is <strong>required</strong>
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <button class="add" mat-raised-button [disabled]="heroeForm.invalid">
+    <mat-icon> add </mat-icon>
+    add
+  </button>
+</form>

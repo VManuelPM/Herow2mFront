@@ -26,6 +26,12 @@ export class HeroesService {
     );
   }
 
+  saveHeroe(heroe: HeroesModel): Observable<HeroesModel>{
+    return this.http.post<HeroesModel>(`${this.BASE_URL}/heroes`, heroe).pipe(
+      catchError(this.handleError)
+    )
+  }
+
   private handleError(error: Response) {
     console.log(error);
     const msg =

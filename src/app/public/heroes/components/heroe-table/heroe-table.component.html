@@ -1,14 +1,19 @@
-<mat-form-field appearance="standard">
-  <mat-label>Filter</mat-label>
-  <input matInput (keyup)="applyFilter($event)" placeholder="heroe" #input />
-</mat-form-field>
+<div class="filter">
+  <button mat-button (click)="onCreate()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="heroe" #input />
+  </mat-form-field>
+</div>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
     <!-- ID Column -->
-    <ng-container matColumnDef="idHeroe">
+    <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-      <td mat-cell *matCellDef="let row">{{ row.idHeroe }}</td>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
     </ng-container>
 
     <!-- Heroe name Column -->
@@ -21,7 +26,17 @@
     <ng-container matColumnDef="heroeImage">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Heroe Image</th>
       <td mat-cell *matCellDef="let row">
-        <img mat-card-image [src]="row.heroeImage" alt="heroeImage">
+        <img mat-card-image [src]="row.heroeImage" alt="heroeImage" />
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <td mat-cell *matCellDef="let row">
+        <div class="icons">
+         <button mat-button><mat-icon>edit</mat-icon></button>
+         <button mat-button><mat-icon>delete</mat-icon></button> 
+        </div>
       </td>
     </ng-container>
 
@@ -37,6 +52,7 @@
   </table>
   <mat-paginator
     [pageSizeOptions]="[5, 10, 25, 100]"
-    aria-label="Select page of heroes">
+    aria-label="Select page of heroes"
+  >
   </mat-paginator>
 </div>
