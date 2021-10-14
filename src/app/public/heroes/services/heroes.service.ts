@@ -32,6 +32,18 @@ export class HeroesService {
     )
   }
 
+  updateHeroe(heroe: HeroesModel): Observable<HeroesModel>{
+    return this.http.put<HeroesModel>(`${this.BASE_URL}/heroes/${heroe.id}`, heroe).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  deleteHeroe(idHeroe: number) {
+    return this.http.delete(`${this.BASE_URL}/heroes/${idHeroe}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: Response) {
     console.log(error);
     const msg =

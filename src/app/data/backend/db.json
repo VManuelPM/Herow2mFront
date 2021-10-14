@@ -2,8 +2,8 @@
   "heroes": [
     {
       "id": 1,
-      "heroeName": "Spiderman",
-      "heroeDescription": "Spider",
+      "heroeName": "Spider man",
+      "heroeDescription": "Spider man con telerañas",
       "heroeImage": "https://cdn-icons-png.flaticon.com/512/1674/1674456.png"
     },
     {
@@ -29,6 +29,12 @@
       "heroeDescription": "Deadpool",
       "heroeImage": "https://cdn-icons-png.flaticon.com/512/1674/1674298.png",
       "id": 5
+    },
+    {
+      "id": 6,
+      "heroeName": "Wonderwoman",
+      "heroeDescription": "La mujer maravilla",
+      "heroeImage": "https://cdn-icons-png.flaticon.com/512/2503/2503183.png"
     }
   ]
 }

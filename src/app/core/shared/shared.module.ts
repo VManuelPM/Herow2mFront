@@ -19,6 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ModalConfirmationComponent } from './components/modal-confirmation/modal-confirmation.component';
+import { ModalSucessComponent } from './components/modal-sucess/modal-sucess.component';
 
 @NgModule({
   imports: [
@@ -37,7 +39,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatInputModule,
     MatDialogModule
   ],
-  declarations: [NotFoundComponent, HeaderComponent, FooterComponent],
+  declarations: [NotFoundComponent, HeaderComponent, FooterComponent, ModalConfirmationComponent, ModalSucessComponent],
   exports: [
     HttpClientModule,
     RouterModule,
@@ -55,6 +57,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    ModalConfirmationComponent,
+    ModalSucessComponent
   ],
   providers: [],
 })

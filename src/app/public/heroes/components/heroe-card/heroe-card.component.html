@@ -1,9 +1,13 @@
-<form [formGroup]="heroeForm" (ngSubmit)="onSubmit()" novalidate>
+<form [formGroup]="getHeroeForm" (ngSubmit)="onSubmit()" novalidate>
+  <div class="imgContainer" *ngIf="getFormImage()">
+    <img mat-card-image [src]="getFormImage()" alt="Photo of Heroe" />
+  </div>
   <mat-form-field appearance="fill">
     <mat-label>Heroe Name</mat-label>
     <input matInput formControlName="heroeName" name="heroeName" type="text" />
     <mat-error
-      *ngIf="getControl.heroeName.touched && getControl.heroeName.invalid">
+      *ngIf="getControl.heroeName.touched && getControl.heroeName.invalid"
+    >
       <mat-error *ngIf="getControl.heroeName.hasError('minLength')">
         Please enter a name > 3 length
       </mat-error>
@@ -16,7 +20,11 @@
     <mat-label>Heroe Description</mat-label>
     <input matInput formControlName="heroeDescription" />
     <mat-error
-      *ngIf="getControl.heroeDescription.touched && getControl.heroeDescription.invalid">
+      *ngIf="
+        getControl.heroeDescription.touched &&
+        getControl.heroeDescription.invalid
+      "
+    >
       <mat-error *ngIf="getControl.heroeDescription.hasError('minLength')">
         Please enter a description > 3 length
       </mat-error>
@@ -27,9 +35,15 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Url Heroe Image</mat-label>
-    <input matInput formControlName="heroeImage" type="url" placeholder="https://example.com"/>
+    <input
+      matInput
+      formControlName="heroeImage"
+      type="url"
+      placeholder="https://example.com"
+    />
     <mat-error
-      *ngIf="getControl.heroeImage.touched && getControl.heroeImage.invalid">
+      *ngIf="getControl.heroeImage.touched && getControl.heroeImage.invalid"
+    >
       <mat-error *ngIf="getControl.heroeImage.hasError('minLength')">
         Please enter a image > 1 lenght
       </mat-error>
@@ -38,8 +52,8 @@
       </mat-error>
     </mat-error>
   </mat-form-field>
-  <button class="add" mat-raised-button [disabled]="heroeForm.invalid">
-    <mat-icon> add </mat-icon>
-    add
+  <button class="add" mat-raised-button [disabled]="formInvalid()">
+    <mat-icon> save </mat-icon>
+    Submit
   </button>
 </form>

@@ -10,6 +10,7 @@ import { HeroeCardComponent } from './heroes/components/heroe-card/heroe-card.co
 import { HeroesService } from './heroes/services/heroes.service';
 import { HeroesComponent } from './heroes/container/heroes.component';
 import { HeroesTableComponent } from './heroes/components/heroe-table/heroe-table.component';
+import { HeroesFormService } from './heroes/services/heroes-form.service';
 
 @NgModule({
   imports: [CommonModule, PublicRoutingModule, SharedModule, ReactiveFormsModule],
@@ -21,7 +22,7 @@ import { HeroesTableComponent } from './heroes/components/heroe-table/heroe-tabl
     HeroeCardComponent,
   ],
   exports: [],
-  providers: [HeroesService],
+  providers: [HeroesService, HeroesFormService],
   entryComponents: [HeroeCardComponent]
 })
 export class PublicModule {
