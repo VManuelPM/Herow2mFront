@@ -62,22 +62,28 @@ export class HeroesTableComponent implements OnInit {
   }
 
   applyFilter(search: string) {
-    //const filterValue = (event.target as HTMLInputElement).value;
-    //  this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (!search) {
       this.getHeroes();
       return;
     }
-
     //Not number
     if (isNaN(+search)) {
-      console.log(search);
-      this.dataSource.filter = this.heroesService.getHeroeLike(this.dataSource, search);
-    }else{
-      this.heroesService.getHeroe(Number(search)).toPromise().then(res=>{
-        this.dataSource.filter = res.heroeName;
-      })
+      this.dataSource.filter = this.heroesService.getHeroeLike(
+        this.dataSource,
+        search
+      );
+    } else {
+      this.heroesService
+        .getHeroe(Number(search))
+        .toPromise()
+        .then(
+          (res) => {
+          this.dataSource.filter = res.heroeName;
+        }, 
+        err=>{
+          this.dataSource = new MatTableDataSource();
+        }
+        );
     }
 
     if (this.dataSource.paginator) {

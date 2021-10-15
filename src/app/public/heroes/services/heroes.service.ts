@@ -50,7 +50,6 @@ export class HeroesService {
   }
 
   private handleError(error: Response) {
-    console.log(error);
     const msg =
       'Error status code' + error.status + 'status' + error.statusText;
     return throwError(msg);

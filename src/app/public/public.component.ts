@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-public',
@@ -10,7 +11,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 export class PublicComponent implements AfterViewInit {
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver, private cdref: ChangeDetectorRef) {}
+  constructor(private observer: BreakpointObserver, private cdref: ChangeDetectorRef, private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -26,4 +27,8 @@ export class PublicComponent implements AfterViewInit {
       this.cdref.detectChanges();
     });
   }
+
+  redirect(url: string){
+    this.router.navigateByUrl("/"+url);
+  } 
 }

@@ -14,13 +14,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
-
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ModalConfirmationComponent } from './components/modal-confirmation/modal-confirmation.component';
 import { ModalSucessComponent } from './components/modal-sucess/modal-sucess.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -37,9 +36,16 @@ import { ModalSucessComponent } from './components/modal-sucess/modal-sucess.com
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxSpinnerModule,
   ],
-  declarations: [NotFoundComponent, HeaderComponent, FooterComponent, ModalConfirmationComponent, ModalSucessComponent],
+  declarations: [
+    NotFoundComponent,
+    HeaderComponent,
+    FooterComponent,
+    ModalConfirmationComponent,
+    ModalSucessComponent,
+  ],
   exports: [
     HttpClientModule,
     RouterModule,
@@ -58,7 +64,8 @@ import { ModalSucessComponent } from './components/modal-sucess/modal-sucess.com
     HeaderComponent,
     FooterComponent,
     ModalConfirmationComponent,
-    ModalSucessComponent
+    ModalSucessComponent,
+    NgxSpinnerModule,
   ],
   providers: [],
 })

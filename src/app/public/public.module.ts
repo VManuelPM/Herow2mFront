@@ -11,9 +11,17 @@ import { HeroesService } from './heroes/services/heroes.service';
 import { HeroesComponent } from './heroes/container/heroes.component';
 import { HeroesTableComponent } from './heroes/components/heroe-table/heroe-table.component';
 import { HeroesFormService } from './heroes/services/heroes-form.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SpinnerInterceptorService } from '../core/interceptors/spinner-interceptor.service';
 
 @NgModule({
-  imports: [CommonModule, PublicRoutingModule, SharedModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    PublicRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   declarations: [
     PublicComponent,
     HeroesComponent,
@@ -22,8 +30,16 @@ import { HeroesFormService } from './heroes/services/heroes-form.service';
     HeroeCardComponent,
   ],
   exports: [],
-  providers: [HeroesService, HeroesFormService],
-  entryComponents: [HeroeCardComponent]
+  providers: [
+    HeroesService,
+    HeroesFormService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptorService,
+      multi: true,
+    },
+  ],
+  entryComponents: [HeroeCardComponent],
 })
 export class PublicModule {
   constructor() {}
