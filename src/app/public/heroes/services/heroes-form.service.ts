@@ -6,9 +6,11 @@ import { HeroesModel } from '../models/heroes.model';
   providedIn: 'root',
 })
 export class HeroesFormService {
-  heroeForm!: FormGroup;
+  public heroeForm!: FormGroup;
+  private reg !: string;
 
   constructor(private formBuilder: FormBuilder) {
+    this.reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   }
 
   createFormGroup() {
@@ -32,7 +34,7 @@ export class HeroesFormService {
       ],
       heroeImage: [
         '',
-        Validators.compose([Validators.required, Validators.minLength(1)]),
+        Validators.compose([Validators.required, Validators.minLength(1), Validators.pattern(this.reg)]),
       ],
     });
   }

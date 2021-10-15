@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { Observable, throwError } from 'rxjs';
 import { tap, catchError} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -24,6 +25,10 @@ export class HeroesService {
     return this.http.get<HeroesModel>(`${this.BASE_URL}/heroes/${idHeroe}`).pipe(
       catchError(this.handleError)
     );
+  }
+
+  getHeroeLike(dataSource: MatTableDataSource<HeroesModel>, parameter: string){
+    return dataSource.filter = parameter.trim().toLowerCase();
   }
 
   saveHeroe(heroe: HeroesModel): Observable<HeroesModel>{

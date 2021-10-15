@@ -10,6 +10,7 @@ import { HeroesService } from '../../services/heroes.service';
 import { HeroeCardComponent } from '../heroe-card/heroe-card.component';
 import { HeroesFormService } from '../../services/heroes-form.service';
 import { ModalConfirmationComponent } from 'src/app/core/shared/components/modal-confirmation/modal-confirmation.component';
+import { ModalSucessComponent } from 'src/app/core/shared/components/modal-sucess/modal-sucess.component';
 
 @Component({
   selector: 'app-heroes-table',
@@ -60,9 +61,24 @@ export class HeroesTableComponent implements OnInit {
       );
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(search: string) {
+    //const filterValue = (event.target as HTMLInputElement).value;
+    //  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (!search) {
+      this.getHeroes();
+      return;
+    }
+
+    //Not number
+    if (isNaN(+search)) {
+      console.log(search);
+      this.dataSource.filter = this.heroesService.getHeroeLike(this.dataSource, search);
+    }else{
+      this.heroesService.getHeroe(Number(search)).toPromise().then(res=>{
+        this.dataSource.filter = res.heroeName;
+      })
+    }
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
@@ -75,7 +91,10 @@ export class HeroesTableComponent implements OnInit {
       .open(HeroeCardComponent, this.dialogConfigs())
       .afterClosed()
       .subscribe((res) => {
-        this.getHeroes();
+        if (res) {
+          this.dialog.open(ModalSucessComponent);
+          this.getHeroes();
+        }
       });
   }
 
@@ -85,23 +104,36 @@ export class HeroesTableComponent implements OnInit {
       .open(HeroeCardComponent, this.dialogConfigs())
       .afterClosed()
       .subscribe((res) => {
-        this.getHeroes();
+        if (res) {
+          this.dialog.open(ModalSucessComponent);
+          this.getHeroes();
+        }
       });
   }
 
-  onDelete(id: number){
-    this.dialog.open(ModalConfirmationComponent).afterClosed().subscribe(res=>{
-      if(res){
-        this.heroesService.deleteHeroe(id).subscribe(res=>console.log(res));
-        this.getHeroes();
-      }
-    })
+  onDelete(id: number) {
+    this.dialog
+      .open(ModalConfirmationComponent)
+      .afterClosed()
+      .subscribe((res) => {
+        if (res) {
+          this.heroesService
+            .deleteHeroe(id)
+            .toPromise()
+            .then((res) => {
+              if (res) {
+                this.dialog.open(ModalSucessComponent);
+                this.getHeroes();
+              }
+            });
+        }
+      });
   }
 
   dialogConfigs(): MatDialogConfig {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.width = '60%';
+    dialogConfig.width = '50%';
     return dialogConfig;
   }
 }

@@ -8,7 +8,7 @@
     <mat-error
       *ngIf="getControl.heroeName.touched && getControl.heroeName.invalid"
     >
-      <mat-error *ngIf="getControl.heroeName.hasError('minLength')">
+      <mat-error *ngIf="getControl.heroeName.hasError('minlength') && !getControl.heroeName.hasError('required')">
         Please enter a name > 3 length
       </mat-error>
       <mat-error *ngIf="getControl.heroeName.hasError('required')">
@@ -25,7 +25,7 @@
         getControl.heroeDescription.invalid
       "
     >
-      <mat-error *ngIf="getControl.heroeDescription.hasError('minLength')">
+      <mat-error *ngIf="getControl.heroeDescription.hasError('minlength')">
         Please enter a description > 3 length
       </mat-error>
       <mat-error *ngIf="getControl.heroeDescription.hasError('required')">
@@ -44,11 +44,14 @@
     <mat-error
       *ngIf="getControl.heroeImage.touched && getControl.heroeImage.invalid"
     >
-      <mat-error *ngIf="getControl.heroeImage.hasError('minLength')">
-        Please enter a image > 1 lenght
+      <mat-error *ngIf="getControl.heroeImage.hasError('minlength')">
+        Please enter an url > 1 lenght
       </mat-error>
       <mat-error *ngIf="getControl.heroeImage.hasError('required')">
         Image is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="getControl.heroeImage.hasError('pattern')">
+        URL <strong>malformed</strong>
       </mat-error>
     </mat-error>
   </mat-form-field>

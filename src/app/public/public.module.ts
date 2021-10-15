@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PublicRoutingModule } from './public-routing.module';
 import { SharedModule } from '../core/shared/shared.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PublicComponent } from './public.component';
 import { HomeComponent } from './home/containers/home.component';
@@ -13,7 +13,7 @@ import { HeroesTableComponent } from './heroes/components/heroe-table/heroe-tabl
 import { HeroesFormService } from './heroes/services/heroes-form.service';
 
 @NgModule({
-  imports: [CommonModule, PublicRoutingModule, SharedModule, ReactiveFormsModule],
+  imports: [CommonModule, PublicRoutingModule, SharedModule, ReactiveFormsModule, FormsModule],
   declarations: [
     PublicComponent,
     HeroesComponent,

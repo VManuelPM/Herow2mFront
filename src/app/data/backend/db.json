@@ -3,7 +3,7 @@
     {
       "id": 1,
       "heroeName": "Spider man",
-      "heroeDescription": "Spider man con telerañas",
+      "heroeDescription": "Spider man teleraña",
       "heroeImage": "https://cdn-icons-png.flaticon.com/512/1674/1674456.png"
     },
     {
@@ -33,7 +33,7 @@
     {
       "id": 6,
       "heroeName": "Wonderwoman",
-      "heroeDescription": "La mujer maravilla",
+      "heroeDescription": "La mujer maravillosa",
       "heroeImage": "https://cdn-icons-png.flaticon.com/512/2503/2503183.png"
     }
   ]
