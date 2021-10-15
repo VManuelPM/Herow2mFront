@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 
 import { HeroesModel } from '../../models/heroes.model';

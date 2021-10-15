@@ -13,6 +13,7 @@ import { HeroesTableComponent } from './heroes/components/heroe-table/heroe-tabl
 import { HeroesFormService } from './heroes/services/heroes-form.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerInterceptorService } from '../core/interceptors/spinner-interceptor.service';
+import { UppercaseDirective } from './heroes/directives/uppercase.directive';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { SpinnerInterceptorService } from '../core/interceptors/spinner-intercep
     HomeComponent,
     HeroesTableComponent,
     HeroeCardComponent,
+    UppercaseDirective,
   ],
   exports: [],
   providers: [
@@ -37,7 +39,7 @@ import { SpinnerInterceptorService } from '../core/interceptors/spinner-intercep
       provide: HTTP_INTERCEPTORS,
       useClass: SpinnerInterceptorService,
       multi: true,
-    },
+    }
   ],
   entryComponents: [HeroeCardComponent],
 })
