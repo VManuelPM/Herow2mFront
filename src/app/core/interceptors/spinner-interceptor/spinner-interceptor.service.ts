@@ -2,7 +2,8 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators'
-import { SpinnerService } from '../services/spinner.service';
+import { SpinnerService } from '../../services/spinner/spinner.service';
+
 
 @Injectable({
   providedIn: 'root'
