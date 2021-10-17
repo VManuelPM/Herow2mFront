@@ -1,8 +1,8 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-
 import { HeaderComponent } from './header.component';
+
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -22,4 +22,5 @@ describe('HeaderComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  
 });
