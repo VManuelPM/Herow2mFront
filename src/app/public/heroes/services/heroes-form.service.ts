@@ -14,7 +14,7 @@ export class HeroesFormService {
   }
 
   createFormGroup() {
-    this.heroeForm = this.formBuilder.group({
+    return this.heroeForm = this.formBuilder.group({
       id: [''],
       heroeName: [
         '',

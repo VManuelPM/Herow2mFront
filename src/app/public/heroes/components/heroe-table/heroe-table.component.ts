@@ -45,20 +45,17 @@ export class HeroesTableComponent implements OnInit {
   }
 
   getHeroes(): void {
-    this.heroesService
-      .getHeroes()
-      .toPromise()
-      .then(
-        (res) => {
-          this.heroes = res;
-          this.dataSource = new MatTableDataSource(this.heroes);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort;
-        },
-        (err) => {
-          console.log(err);
-        }
-      );
+    this.heroesService.getHeroes().subscribe(
+      (res) => {
+        this.heroes = res;
+        this.dataSource = new MatTableDataSource(this.heroes);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   applyFilter(search: string) {
@@ -78,11 +75,11 @@ export class HeroesTableComponent implements OnInit {
         .toPromise()
         .then(
           (res) => {
-          this.dataSource.filter = res.heroeName;
-        }, 
-        err=>{
-          this.dataSource = new MatTableDataSource();
-        }
+            this.dataSource.filter = res.heroeName;
+          },
+          (err) => {
+            this.dataSource = new MatTableDataSource();
+          }
         );
     }
 

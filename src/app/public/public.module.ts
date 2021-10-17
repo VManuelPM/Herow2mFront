@@ -11,7 +11,6 @@ import { HomeModule } from './home/containers/home.module';
 import { PublicRoutingModule } from './public-routing.module';
 import { PublicComponent } from './public.component';
 
-
 @NgModule({
   imports: [
     SharedModule,
@@ -21,7 +20,7 @@ import { PublicComponent } from './public.component';
     MatSidenavModule,
     MatIconModule,
     MatButtonModule,
-    MatDividerModule
+    MatDividerModule,
   ],
   declarations: [PublicComponent],
   exports: [],

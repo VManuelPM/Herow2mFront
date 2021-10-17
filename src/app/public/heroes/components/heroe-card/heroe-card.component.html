@@ -4,7 +4,7 @@
   </div>
   <mat-form-field appearance="fill">
     <mat-label>Heroe Name</mat-label>
-    <input matInput formControlName="heroeName" name="heroeName" type="text" appUppercase />
+    <input matInput formControlName="heroeName" id="heroeName" name="heroeName" type="text" appUppercase />
     <mat-error
       *ngIf="getControl.heroeName.touched && getControl.heroeName.invalid"
     >
