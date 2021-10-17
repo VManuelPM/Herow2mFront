@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
 
-![alt text](https://github.com/VManuelPM/Herow2mFront/tree/main/src/assets/captura.png)
+![alt text](https://github.com/VManuelPM/Herow2mFront/tree/main/src/assets/img/captura.png)
 
 ## Instalation
 
