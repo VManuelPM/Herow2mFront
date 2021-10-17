@@ -44,7 +44,7 @@ export class HeroesService {
   }
 
   deleteHeroe(idHeroe: number) {
-    return this.http.delete(`${this.BASE_URL}/heroes/${idHeroe}`).pipe(
+    return this.http.delete<any>(`${this.BASE_URL}/heroes/${idHeroe}`).pipe(
       catchError(this.handleError)
     );
   }

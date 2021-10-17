@@ -7,7 +7,6 @@ import { HeroesModel } from '../../models/heroes.model';
 import { HeroesFormService } from '../../services/heroes-form.service';
 import { HeroeCardComponent } from './heroe-card.component';
 
-
 describe('HeroeCardComponent', () => {
   let component: HeroeCardComponent;
   let fixture: ComponentFixture<HeroeCardComponent>;
