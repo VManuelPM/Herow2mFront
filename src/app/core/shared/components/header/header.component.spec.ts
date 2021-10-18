@@ -1,8 +1,13 @@
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import {
+  TranslateFakeLoader,
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { HeaderComponent } from './header.component';
-
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -12,8 +17,19 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      imports: [MatDialogModule],
-      providers: [{ provide: MatDialogRef, useValue: {} }],
+      imports: [
+        MatDialogModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useClass: TranslateFakeLoader,
+          },
+        }),
+      ],
+      providers: [
+        { provide: MatDialogRef, useValue: {} },
+        { provide: TranslateService },
+      ],
     }).compileComponents();
   });
 
@@ -22,5 +38,4 @@ describe('HeaderComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  
 });

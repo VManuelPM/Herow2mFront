@@ -3,6 +3,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  TranslateFakeLoader,
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { UppercaseDirective } from '../../directives/uppercase/uppercase.directive';
 import { HeroesModel } from '../../models/heroes.model';
 import { HeroesFormService } from '../../services/heroes-form.service';
@@ -18,8 +24,8 @@ describe('HeroeCardComponent', () => {
   let heroe: HeroesModel;
 
   const dialogMock = {
-    close: () => { }
-   };
+    close: () => {},
+  };
 
   beforeEach(async () => {
     const heroesFormServiceSpy = jasmine.createSpyObj('HeroesFormService', [
@@ -32,12 +38,19 @@ describe('HeroeCardComponent', () => {
         HttpClientTestingModule,
         MatDialogModule,
         MatDialogModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useClass: TranslateFakeLoader,
+          },
+        }),
       ],
       providers: [
         { provide: MatDialogRef, useValue: dialogMock },
         { provide: FormBuilder, useValue: formBuilder },
         { provide: HeroesFormService, userValue: heroesFormServiceSpy },
+        { provide: TranslateService },
       ],
     }).compileComponents();
   });
@@ -91,6 +104,4 @@ describe('HeroeCardComponent', () => {
     expect(component.formInvalid()).toBeFalse();
     component.onSubmit();
   });
-
-
 });

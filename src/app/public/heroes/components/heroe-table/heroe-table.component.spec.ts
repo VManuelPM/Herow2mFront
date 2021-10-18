@@ -6,6 +6,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { MockBuilder, MockRender, ngMocks } from 'ng-mocks';
 import { ModalConfirmationModule } from 'src/app/core/shared/components/modal-confirmation/modal-confirmation.module';
 import { ModalSucessComponent } from 'src/app/core/shared/components/modal-sucess/modal-sucess.component';
@@ -13,6 +14,7 @@ import { ModalSucessModule } from 'src/app/core/shared/components/modal-sucess/m
 import { HeroesModel } from '../../models/heroes.model';
 import { HeroesFormService } from '../../services/heroes-form.service';
 import { HeroesService } from '../../services/heroes.service';
+import { HeroeCardModule } from '../heroe-card/heroe-card.module';
 import { HeroesTableComponent } from './heroe-table.component';
 
 describe('HeroeTableComponent', () => {
@@ -37,12 +39,21 @@ describe('HeroeTableComponent', () => {
         MatDialogModule,
         ModalConfirmationModule,
         ModalSucessModule,
+        HeroeCardModule,
+        TranslateModule.forRoot({
+          loader: {
+            provide: TranslateLoader,
+            useClass: TranslateFakeLoader,
+          },
+          isolate: true
+        }),
       ],
       providers: [
         HeroesFormService,
         MatPaginator,
         MatSort,
         { MatDialog, useValue: {} },
+        TranslateService
       ],
     }).compileComponents();
   });
