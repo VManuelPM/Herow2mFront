@@ -3,7 +3,7 @@
     <img mat-card-image [src]="getFormImage()" alt="Photo of Heroe" />
   </div>
   <mat-form-field appearance="fill">
-    <mat-label>Heroe Name</mat-label>
+    <mat-label>{{'heroe_name' | translate}}</mat-label>
     <input matInput formControlName="heroeName" id="heroeName" name="heroeName" type="text" appUppercase />
     <mat-error
       *ngIf="getControl.heroeName.touched && getControl.heroeName.invalid"
@@ -17,7 +17,7 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Heroe Description</mat-label>
+    <mat-label>{{'heroe_description' | translate}}</mat-label>
     <input matInput formControlName="heroeDescription" />
     <mat-error
       *ngIf="
@@ -34,7 +34,7 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Url Heroe Image</mat-label>
+    <mat-label>{{'url_heroe_image' | translate}}</mat-label>
     <input
       matInput
       formControlName="heroeImage"
@@ -57,7 +57,7 @@
   </mat-form-field>
   <button class="add" mat-raised-button [disabled]="formInvalid()">
     <mat-icon> save </mat-icon>
-    Submit
+    {{'submit' | translate}}
   </button>
 </form>
 <ngx-spinner></ngx-spinner>

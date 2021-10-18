@@ -3,7 +3,7 @@
     <mat-icon>add</mat-icon>
   </button>
   <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
+    <mat-label>{{'filter' | translate}}</mat-label>
     <input matInput #txtInput placeholder="heroe" />
   </mat-form-field>
   <button mat-button (click)="applyFilter(txtInput.value)">
@@ -21,20 +21,20 @@
 
     <!-- Heroe name Column -->
     <ng-container matColumnDef="heroeName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Heroe Name</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'heroe_name' | translate}}</th>
       <td mat-cell *matCellDef="let row">{{ row.heroeName }}</td>
     </ng-container>
 
     <!-- Heroe Image Column -->
     <ng-container matColumnDef="heroeImage">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Heroe Image</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'heroe_image' | translate}}</th>
       <td mat-cell *matCellDef="let row">
         <img mat-card-image [src]="row.heroeImage" alt="heroeImage" />
       </td>
     </ng-container>
 
     <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'action' | translate}}</th>
       <td mat-cell *matCellDef="let row">
         <div class="icons">
           <button mat-button (click)="onEdit(row)">

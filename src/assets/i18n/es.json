@@ -1,0 +1,12 @@
+{
+  "choose_language": "Seleccione idioma",
+  "filter": "Filtrar",
+  "help": "Ayuda",
+  "heroe_description": "Descripción del héroe",
+  "heroe_name": "Nombre del héroe",
+  "heroe_image": "Imagen",
+  "home": "Inicio",
+  "submit": "Enviar",
+  "url_heroe_image": "Url Imagen del héroe",
+  "action": "Acción"
+}

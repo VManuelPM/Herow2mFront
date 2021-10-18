@@ -4,14 +4,14 @@
   <mat-sidenav #sidenav="matSidenav">
     <button mat-button class="menu-button" (click)="redirect('home')">
       <mat-icon>home</mat-icon>
-      <span>Home</span>
+      <span>{{'home' | translate}}</span>
     </button>
 
     <mat-divider></mat-divider>
 
     <button mat-button class="menu-button" (click)="redirect('help')">
       <mat-icon>help</mat-icon>
-      <span>Help</span>
+      <span>{{'help' | translate}}</span>
     </button>
   </mat-sidenav>
 

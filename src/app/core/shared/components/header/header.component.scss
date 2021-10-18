@@ -2,3 +2,16 @@ mat-toolbar {
     background: #004a9f;
     color: white;
 }
+
+.header-language{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.select-language{
+    height: 63px !important;
+    font-size: 15px !important;
+}

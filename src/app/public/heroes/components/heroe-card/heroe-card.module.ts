@@ -10,6 +10,7 @@ import { HeroesFormService } from '../../services/heroes-form.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { UppercaseModule } from '../../directives/uppercase/uppercase.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HeroeCardComponent],
@@ -22,7 +23,8 @@ import { UppercaseModule } from '../../directives/uppercase/uppercase.module';
     ReactiveFormsModule,
     SpinnerModule,
     MatButtonModule,
-    UppercaseModule
+    UppercaseModule,
+    TranslateModule
   ],
   providers:[HeroesFormService],
   exports: [HeroeCardComponent],

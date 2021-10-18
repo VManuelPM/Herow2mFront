@@ -1,10 +1,17 @@
 <mat-toolbar>
-  <button
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
-  Heroes W2M
+  <div class="header-language">
+    <div>Heroes W2M</div>
+    <div class="select-language">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ "choose_language" | translate }}</mat-label>
+        <mat-select [(value)]="selectedLanguages" (selectionChange)="selectLanguage($event)">
+          <mat-option [value]="language.value" *ngFor="let language of languages">{{ language.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
 </mat-toolbar>
