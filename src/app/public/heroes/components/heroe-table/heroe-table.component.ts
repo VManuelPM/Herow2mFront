@@ -27,7 +27,7 @@ export class HeroesTableComponent implements OnInit {
   ];
   public dataSource!: MatTableDataSource<HeroesModel>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator, {static: false}) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(

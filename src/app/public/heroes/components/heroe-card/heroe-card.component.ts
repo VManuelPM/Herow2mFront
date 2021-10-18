@@ -44,8 +44,8 @@ export class HeroeCardComponent implements OnInit {
     if (this.formInvalid()) {
       return;
     }
-    this.heroe = this.heroesFormService.heroeForm.value;
 
+    this.heroe = this.heroesFormService.heroeForm.value;
     if (!this.heroe.id) {
       this.heroesService
         .saveHeroe(this.heroe)
