@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { TranslateModule } from '@ngx-translate/core';
+import { SpinnerModule } from 'src/app/core/services/spinner/spinner.module';
 import { ModalConfirmationModule } from 'src/app/core/shared/components/modal-confirmation/modal-confirmation.module';
 import { ModalSucessModule } from 'src/app/core/shared/components/modal-sucess/modal-sucess.module';
 import { HeroesTableComponent } from './heroe-table.component';
@@ -23,7 +24,8 @@ import { HeroesTableComponent } from './heroe-table.component';
     MatButtonModule,
     ModalConfirmationModule,
     ModalSucessModule,
-    TranslateModule
+    TranslateModule,
+    SpinnerModule
   ],
   exports: [HeroesTableComponent],
 })

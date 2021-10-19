@@ -4,6 +4,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { TranslateModule } from '@ngx-translate/core';
+import { SpinnerModule } from '../core/services/spinner/spinner.module';
 import { SharedModule } from '../core/shared/shared.module';
 import { HeroeCardComponent } from './heroes/components/heroe-card/heroe-card.component';
 import { UppercaseModule } from './heroes/directives/uppercase/uppercase.module';
@@ -22,7 +23,8 @@ import { PublicComponent } from './public.component';
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
-    TranslateModule
+    TranslateModule,
+    SpinnerModule
   ],
   declarations: [PublicComponent],
   exports: [],
